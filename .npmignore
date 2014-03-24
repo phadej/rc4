@@ -1,0 +1,9 @@
+.npmignore
+.gitignore
+.jshintrc
+.travis.yml
+
+synopsis.js
+
+coverage/
+test/
