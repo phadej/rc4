@@ -41,3 +41,15 @@ console.log(generator.randomFloat());  // 0.9362740234937519
 generator.setStateString(stateString);
 console.log(generator.randomFloat()); // 0.9362740234937519
 ```
+
+## API
+
+Both `RC4` and `RC4small` have following random value generating methods:
+
+```
+randomByte   : () ⇒ { x : ℕ | x ∈ [0, 255] }
+randomUInt32 : () ⇒ { x : ℕ | x ∈ [0, 2^32-1] }
+randomFloat  : () ⇒ { x : R | x ∈ [0, 1) }
+random       : (a : ℤ)        ⇒ { x : ℤ | x ∈ [0, a] }
+random       : (a : ℤ, b : ℤ) ⇒ { x : ℤ | x ∈ [a, b] }
+```

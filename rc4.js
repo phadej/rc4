@@ -63,14 +63,36 @@ function createRC4(N) {
     return k;
   };
 
-  RC4.prototype.randomFloat = function () {
+  RC4.prototype.randomUInt32 = function () {
     var a = this.randomByte();
     var b = this.randomByte();
     var c = this.randomByte();
     var d = this.randomByte();
 
-    var e = ((a * 256 + b) * 256 + c) * 256 + d;
-    return e / 0x100000000;
+    return ((a * 256 + b) * 256 + c) * 256 + d;
+  };
+
+  RC4.prototype.randomFloat = function () {
+    return this.randomUInt32() / 0x100000000;
+  };
+
+  RC4.prototype.random = function() {
+    var a, b;
+    if (arguments.length === 1) {
+      a = 0;
+      b = arguments[0];
+    } else if (arguments.length === 2) {
+      a = arguments[0];
+      b = arguments[1];
+    } else {
+      throw new TypeError("random takes one or two integer arguments");
+    }
+
+    if (a !== (a | 0) || b !== (b | 0)) {
+      throw new TypeError("random takes one or two integer arguments");
+    }
+
+    return a + this.randomUInt32() % (b - a + 1);
   };
 
   RC4.prototype.currentState = function () {
