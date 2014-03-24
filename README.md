@@ -1,6 +1,6 @@
 # rc4
 
-RC4 random number generator
+[RC4](http://en.wikipedia.org/wiki/RC4) random number generator
 
 [![Build Status](https://secure.travis-ci.org/phadej/rc4.png?branch=master)](http://travis-ci.org/phadej/rc4)
 [![NPM version](https://badge.fury.io/js/rc4.png)](http://badge.fury.io/js/rc4)
