@@ -19,6 +19,9 @@ var chi15p99 = 30.578;
 var chi1p1 = 0.000;
 var chi1p99 = 6.635;
 
+var chi6p1 = 0.872;
+var chi6p99 = 16.812;
+
 describe("constructor", function () {
   it("takes string as seed", function () {
     var rc4 = new RC4("lol");
@@ -180,6 +183,73 @@ describe("χ² tests", function () {
   [1000, 10000, 100000].forEach(function (N) {
     [1, 2, 3].forEach(function (n) {
       chisqurareit(N, n);
+    });
+  });
+});
+
+describe("random", function () {
+  var rc4 = new RC4("deadbeef");
+
+  function run(N) {
+      var i;
+      var values = new Array(7);
+
+      for (i = 0; i < 7; i++) {
+        values[i] = 0;
+      }
+
+      for (i = 0; i < N; i++) {
+        var b = rc4.random(6); // inclusive, 0..6 = 7 values
+        values[b] += 1;
+      }
+
+      var chi = 0;
+
+      for (i = 0; i < 7; i++){
+        var nps = N/7;
+        chi += sq(values[i] - nps)/nps;
+      }
+
+      return (chi6p1 < chi && chi < chi6p99);
+  }
+
+  function chisqurareit(N, n) {
+    it("N = " + N + " - " + n + ". run", function () {
+      var a = run(N);
+      var b = run(N);
+      var c = run(N);
+
+      // only one may fail
+      assert(a || b);
+      assert(b || c);
+    });
+  }
+
+  [1000, 10000, 100000].forEach(function (N) {
+    [1, 2, 3].forEach(function (n) {
+      chisqurareit(N, n);
+    });
+  });
+
+  it("requires one or two integer arguments", function () {
+    assert.throws(function () {
+      rc4.random();
+    });
+
+    assert.throws(function () {
+      rc4.random("a");
+    });
+
+    assert.throws(function () {
+      rc4.random(0, "a");
+    });
+
+    assert.throws(function () {
+      rc4.random(0, 1, 3);
+    });
+
+    assert.throws(function () {
+      rc4.random(0, 0.5);
     });
   });
 });
