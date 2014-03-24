@@ -13,6 +13,7 @@
 var RC4 = require("rc4");
 
 var generator = new RC4("my seed"); // string or array of integers
+// without the seed RNG is seeded with random data from Math.random
 
 // byte := integer ∈ [0, 255]
 console.log(generator.randomByte());
