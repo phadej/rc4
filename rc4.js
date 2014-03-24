@@ -14,7 +14,12 @@ function createRC4(N) {
 
   // :: string | array integer -> array integer
   function seed(key) {
-    if (typeof key === "string") {
+    if (key === undefined) {
+      key = new Array(N);
+      for (var k = 0; k < N; k++) {
+        key[k] = Math.floor(Math.random() * N);
+      }
+    } else if (typeof key === "string") {
       // to string
       key = "" + key;
       key = key.split("").map(function (c) { return c.charCodeAt(0) % N; });

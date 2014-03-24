@@ -23,6 +23,13 @@ var chi6p1 = 0.872;
 var chi6p99 = 16.812;
 
 describe("constructor", function () {
+  it("autoseeds if no parameter given", function () {
+    var rc4 = new RC4();
+    var r = rc4.randomFloat();
+
+    assert(0 <= r && r < 1);
+  });
+
   it("takes string as seed", function () {
     var rc4 = new RC4("lol");
 
