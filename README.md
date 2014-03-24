@@ -26,3 +26,18 @@ console.log(generator.randomFloat()); // 0.14815412228927016
 generator.setState(state);
 console.log(generator.randomFloat()); // 0.14815412228927016
 ```
+
+## RC4small
+
+There is also `RC4small` generator, with smaller internal state:
+
+```
+var RC4small = require("rc4").RC4small;
+
+var generator = new RC4small("my seed");
+
+var stateString = generator.currentStateString(); // 18 character hexadecimal string
+console.log(generator.randomFloat());  // 0.9362740234937519
+generator.setStateString(stateString);
+console.log(generator.randomFloat()); // 0.9362740234937519
+```
