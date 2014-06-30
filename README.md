@@ -2,10 +2,10 @@
 
 [RC4](http://en.wikipedia.org/wiki/RC4) random number generator
 
-[![Build Status](https://secure.travis-ci.org/phadej/rc4.png?branch=master)](http://travis-ci.org/phadej/rc4)
-[![NPM version](https://badge.fury.io/js/rc4.png)](http://badge.fury.io/js/rc4)
-[![Dependency Status](https://gemnasium.com/phadej/rc4.png)](https://gemnasium.com/phadej/rc4)
-[![Code Climate](https://codeclimate.com/github/phadej/rc4.png)](https://codeclimate.com/github/phadej/rc4)
+[![Build Status](https://secure.travis-ci.org/phadej/rc4.svg?branch=master)](http://travis-ci.org/phadej/rc4)
+[![NPM version](https://badge.fury.io/js/rc4.svg)](http://badge.fury.io/js/rc4)
+[![Dependency Status](https://gemnasium.com/phadej/rc4.svg)](https://gemnasium.com/phadej/rc4)
+[![Code Climate](https://img.shields.io/codeclimate/github/phadej/rc4.svg)](https://codeclimate.com/github/phadej/rc4)
 
 ## Synopsis
 
