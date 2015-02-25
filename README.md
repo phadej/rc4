@@ -54,3 +54,7 @@ randomFloat  : () ⇒ { x : R | x ∈ [0, 1) }
 random       : (a : ℤ)        ⇒ { x : ℤ | x ∈ [0, a] }
 random       : (a : ℤ, b : ℤ) ⇒ { x : ℤ | x ∈ [a, b] }
 ```
+
+## Changelog
+
+- **0.1.4** &mdash; *2015-02-25* &mdash; Dev dependencies update
