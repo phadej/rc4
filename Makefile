@@ -1,20 +1,24 @@
 all : test
 
-.PHONY : all test jshint mocha istanbul dist
+.PHONY : all test jshint david mocha istanbul dist
 
 BINDIR=node_modules/.bin
 
 MOCHA=$(BINDIR)/_mocha
 ISTANBUL=$(BINDIR)/istanbul
 JSHINT=$(BINDIR)/jshint
+DAVID=$(BINDIR)/david
 LJS=$(BINDIR)/ljs
 
-test : jshint mocha istanbul
+test : jshint mocha istanbul david
 
 jshint :
 	$(JSHINT) rc4.js
 
-mocha : 
+david :
+	$(DAVID)
+
+mocha :
 	$(MOCHA) --reporter=spec test
 
 istanbul :

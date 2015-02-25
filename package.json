@@ -29,8 +29,8 @@
   },
   "homepage": "https://github.com/phadej/rc4",
   "devDependencies": {
-    "mocha": "~1.20.1",
-    "istanbul": "~0.2.6",
-    "jshint": "~2.5.1"
+    "istanbul": "^0.3.6",
+    "jshint": "^2.6.0",
+    "mocha": "^2.1.0"
   }
 }
