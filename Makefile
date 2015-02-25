@@ -7,6 +7,8 @@ BINDIR=node_modules/.bin
 MOCHA=$(BINDIR)/_mocha
 ISTANBUL=$(BINDIR)/istanbul
 JSHINT=$(BINDIR)/jshint
+ESLINT=$(BINDIR)/eslint
+JSCS=$(BINDIR)/jscs
 DAVID=$(BINDIR)/david
 LJS=$(BINDIR)/ljs
 
@@ -14,6 +16,12 @@ test : jshint mocha istanbul david
 
 jshint :
 	$(JSHINT) rc4.js
+
+eslint :
+	$(ESLINT) rc4.js
+
+jscs :
+	$(JSCS) rc4.js
 
 david :
 	$(DAVID)

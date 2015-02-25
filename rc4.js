@@ -49,11 +49,13 @@ function createRC4(N) {
     return s;
   }
 
+  /* eslint-disable no-shadow */
   function RC4(key) {
     this.s = seed(key);
     this.i = 0;
     this.j = 0;
   }
+  /* eslint-enable no-shadow */
 
   RC4.prototype.randomNative = function () {
     this.i = (this.i + 1) % N;
@@ -81,8 +83,10 @@ function createRC4(N) {
     return this.randomUInt32() / 0x100000000;
   };
 
-  RC4.prototype.random = function() {
-    var a, b;
+  RC4.prototype.random = function () {
+    var a;
+    var b;
+
     if (arguments.length === 1) {
       a = 0;
       b = arguments[0];
@@ -108,18 +112,20 @@ function createRC4(N) {
     };
   };
 
-  RC4.prototype.setState = function(state) {
+  RC4.prototype.setState = function (state) {
     var s = state.s;
     var i = state.i;
     var j = state.j;
 
+    /* eslint-disable yoda */
     if (!(i === (i | 0) && 0 <= i && i < N)) {
-      throw new Error("state.i should be integer [0, " + (N-1) + "]");
+      throw new Error("state.i should be integer [0, " + (N - 1) + "]");
     }
 
     if (!(j === (j | 0) && 0 <= j && j < N)) {
-      throw new Error("state.j should be integer [0, " + (N-1) + "]");
+      throw new Error("state.j should be integer [0, " + (N - 1) + "]");
     }
+    /* eslint-enable yoda */
 
     // check length
     if (!Array.isArray(s) || s.length !== N) {
@@ -129,7 +135,7 @@ function createRC4(N) {
     // check that all params are there
     for (var k = 0; k < N; k++) {
       if (s.indexOf(k) === -1) {
-        throw new Error("state should be permutation of 0.." + (N-1) + ": " + k + " is missing");
+        throw new Error("state should be permutation of 0.." + (N - 1) + ": " + k + " is missing");
       }
     }
 
@@ -169,7 +175,7 @@ RC4small.prototype.currentStateString = function () {
   var i = toHex(state.i);
   var j = toHex(state.j);
 
-  var res =  i + j + state.s.map(toHex).join("");
+  var res = i + j + state.s.map(toHex).join("");
   return res;
 };
 
