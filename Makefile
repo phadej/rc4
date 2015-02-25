@@ -30,7 +30,7 @@ mocha :
 	$(MOCHA) --reporter=spec test
 
 istanbul :
-	$(ISTANBUL) cover $(MOCHA) test
+	$(ISTANBUL) cover -- $(MOCHA) --timeout 5000 test
 	$(ISTANBUL) check-coverage --statements 100 --branches 100 --functions 100 --lines 100
 
 dist : test
