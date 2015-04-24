@@ -3,6 +3,10 @@
 // Based on RC4 algorithm, as described in
 // http://en.wikipedia.org/wiki/RC4
 
+function isInteger(n) {
+  return parseInt(n, 10) === n;
+}
+
 function createRC4(N) {
   function identityPermutation() {
     var s = new Array(N);
@@ -97,7 +101,7 @@ function createRC4(N) {
       throw new TypeError("random takes one or two integer arguments");
     }
 
-    if (a !== (a | 0) || b !== (b | 0)) {
+    if (!isInteger(a) || !isInteger(b)) {
       throw new TypeError("random takes one or two integer arguments");
     }
 
