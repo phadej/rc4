@@ -1,6 +1,6 @@
 {
   "name": "rc4",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "RC4 random number generator",
   "main": "rc4.js",
   "directories": {

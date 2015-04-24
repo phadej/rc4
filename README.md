@@ -57,4 +57,5 @@ random       : (a : ℤ, b : ℤ) ⇒ { x : ℤ | x ∈ [a, b] }
 
 ## Changelog
 
+- **0.1.5** &mdash; *2015-04-24* &mdash; Better isInteger, random works with bigger ranges
 - **0.1.4** &mdash; *2015-02-25* &mdash; Dev dependencies update
